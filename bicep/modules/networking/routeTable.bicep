@@ -14,13 +14,6 @@ resource aseRouteTable 'Microsoft.Network/routeTables@2021-05-01' = {
           nextHopType: 'VirtualAppliance'
           nextHopIpAddress: fwPrivateIP
         }
-      }     
-      {
-        name: 'fw-to-internet'
-        properties: {
-          addressPrefix: '${fwPublicIP}/32'
-          nextHopType: 'Internet'          
-        }
       }
     ]
   }
