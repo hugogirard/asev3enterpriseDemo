@@ -1,0 +1,66 @@
+﻿@page "/"
+@using Microsoft.EntityFrameworkCore
+@inject TodoContext repository
+
+<PageTitle>TodoApp</PageTitle>
+
+<h1>Welcome to TodoApp</h1>
+
+
+@if (IsOnError)
+{    
+    <div class="alert alert-danger" role="alert">
+      @ErrorMsg
+    </div>
+}
+
+
+@if (Todoes != null)
+{
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Task</th>
+          <th scope="col">IsDone</th>          
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (var todo in Todoes)
+        {
+            <tr>
+              <td>@todo.Id</td>
+              <td>@todo.Task</td>
+              <td>@todo.IsDone</td>              
+            </tr>        
+        }    
+      </tbody>
+    </table>
+}
+
+@code {
+
+    private IList<Todo> Todoes;
+    private string ErrorMsg;
+    private bool IsOnError = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            Todoes = await repository.Todoes.ToListAsync();
+            IsOnError = false;
+        }
+        catch (Exception ex)
+        {
+            ErrorMsg = ex.Message;
+            IsOnError = true;            
+        }
+
+        await base.OnInitializedAsync();
+    }
+}
+
+
+
+
