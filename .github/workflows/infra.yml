@@ -69,6 +69,20 @@ jobs:
           pa_token: ${{ secrets.PA_TOKEN }}              
 
       - uses: gliech/create-github-secret-action@v1
+        name: Write Web App Name TodoWeb
+        with:
+          name: WEBAPP_TODOWEB_NAME
+          value: ${{ steps.createResources.outputs.todoWebAppName }}
+          pa_token: ${{ secrets.PA_TOKEN }}
+
+      - uses: gliech/create-github-secret-action@v1
+        name: Write Web App FQDN TodoWeb
+        with:
+          name: WEBAPP_TODOWEB_NAME_FQDN
+          value: ${{ steps.createResources.outputs.todoWebAppFQDN }}
+          pa_token: ${{ secrets.PA_TOKEN }}              
+
+      - uses: gliech/create-github-secret-action@v1
         name: Write Gateway Subnet ID
         with:
           name: GATEWAY_SUBNET_ID

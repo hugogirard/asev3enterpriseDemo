@@ -186,6 +186,7 @@ module web 'modules/webapp/webapp.bicep' = {
     suffix: spokeAseSuffix
     cacheName: cache.outputs.cacheName
     cacheResourceGroup: spokeDBRg.name
+    appServiceWebTodoId: appServicePlan.outputs.appserviceTodoId
   }
 }
 
@@ -232,5 +233,8 @@ output gatewaySubnetId string = vnetSpoke.outputs.subnets[1].id
 
 output weatherApiAppFQDN string = web.outputs.weatherApiAppFQDN
 output fibonacciApiAppFQDN string = web.outputs.fibonacciApiAppFQDN
+
+output todoWebAppName string = web.outputs.todoWebAppName
+output todoWebAppFQDN string = web.outputs.todoWebAppFQDN
 
 output spokeResourceGroupName string = spokeRgAseName
