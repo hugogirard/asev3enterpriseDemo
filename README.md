@@ -69,7 +69,7 @@ Be sure you already configured your **Azure Public DNS Zone**.
 First create a service principal running the following command.
 
 ```Bash
-$ az ad sp create-for-rbac --name <ServicePrincipalName> --sdk-auth --role contributor
+$ az ad sp create-for-rbac --name <ServicePrincipalName> --sdk-auth --role contributor --scope '/subscriptions/{subscriptionId}'
 ```
 
 Take note of the output you will need it to create Github Secrets.
