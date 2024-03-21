@@ -22,7 +22,11 @@
                   {
                     "name": "snet-runner",                    
                     "addressPrefix": "10.0.3.0/27"                    
-                  }                     
+                  },
+                  {
+                    "name": "AzureFirewallManagementSubnet",                    
+                    "addressPrefix": "10.0.4.0/24"
+                  }                                      
                 ]
               },
               "spoke": {

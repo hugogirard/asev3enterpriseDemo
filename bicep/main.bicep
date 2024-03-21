@@ -68,7 +68,8 @@ module firewall 'modules/firewall/firewall.bicep' = {
   name: 'firewall'
   params: {
     location: location
-    subnetId: vnetHub.outputs.subnets[0].id
+    subnetFirewallId: vnetHub.outputs.subnets[0].id
+    subnetManagementId: vnetHub.outputs.subnets[3].id
     suffix: hubsuffix
     subnetASECIDR: vnetConfiguration.spoke.subnets[0].properties.addressPrefix
     subnetSpokeDBCIDR: vnetConfiguration.spokeDB.addressPrefixe

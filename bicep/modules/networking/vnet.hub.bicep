@@ -43,7 +43,13 @@ resource vnet 'Microsoft.Network/virtualNetworks@2021-05-01' = {
             id: nsgrunner.id
           }
         }
-      }                   
+      }
+      {
+        name: vnetConfiguration.subnets[3].name
+        properties: {
+          addressPrefix: vnetConfiguration.subnets[3].addressPrefix
+        }
+      }                     
     ]
   }
 }
