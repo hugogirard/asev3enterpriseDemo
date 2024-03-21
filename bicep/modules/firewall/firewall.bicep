@@ -37,7 +37,7 @@ resource firewallPolicies 'Microsoft.Network/firewallPolicies@2021-05-01' = {
   location: location
   properties: {
     sku: {
-      tier: 'Standard'
+      tier: 'Basic'
     }
     threatIntelMode: 'Alert'
   }
